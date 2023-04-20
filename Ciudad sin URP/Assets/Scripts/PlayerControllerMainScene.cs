@@ -50,7 +50,7 @@ public class PlayerControllerMainScene : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
+    {/*
         rb.velocity =
             new Vector3(variableJoystick.Vertical * speed,
                 rb.velocity.z,
@@ -62,7 +62,20 @@ public class PlayerControllerMainScene : MonoBehaviour
             anim.SetBool("Quieto", false);
         }
         else
+            anim.SetBool("Quieto", true);*/
+
+                        float movimientoH = Input.GetAxis("Horizontal");
+            float movimientoV = Input.GetAxis("Vertical");
+
+            Vector3 movimiento = new Vector3(movimientoH * speed, 0.0f, movimientoV * speed);
+    
+        if (movimientoH != 0 || movimientoV !=0)
+        {
+            transform.rotation = Quaternion.LookRotation(rb.velocity);
+            anim.SetBool("Quieto", false);
+        } else {
             anim.SetBool("Quieto", true);
+        }
     }
 
     void Update()

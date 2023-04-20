@@ -67,8 +67,10 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(rb.velocity);
             anim.SetBool("Quieto", false);
         }
-        else
-            anim.SetBool("Quieto", true);
+        else {anim.SetBool("Quieto", true);
+        }
+            
+            
     }
 
     void Update()
